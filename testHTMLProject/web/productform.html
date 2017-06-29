@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+
+ <form method="post" action="">
+	
+	<fieldset>
+		<legend>납품자정보</legend>
+		<ol>
+			<li>
+			<label for="name">납품자명:</label>
+			<input id=name type="text" placeholder="name">
+			</li>
+			<br>
+			<li>
+			<label for="email">email:</label>
+			<input id="email" type="email" placeholder="answs@naver.com">
+			</li>
+			<br>
+			<li>
+			<label for="homepage">홈페이지:</label>
+			<input id="homepage" name="homepage" placeholder="http://">
+			</li>
+		</ol>
+	</fieldset>
+	<br>
+
+	<fieldset>
+		<legend>납품자정보</legend>
+		<ul>
+			<li>
+			<label for="sangfum">상품명:</label>
+			<input id="sangfum" type="text" placeholder="name">
+			</li>
+			<br>
+			<li>
+			<label for=num>납품수량:</label>
+			<input id="num" type="number" placeholder="최소100" min="100">
+			</li>
+			<br>
+			<li>
+			<label for="grade">납품등급</label>
+			<input id="grade" type="range">
+			</li>
+			<li>
+			<label for="etc">기타사항:</label>
+			<textarea name="etc" rows="2" cols="20"></textarea>
+			</li>
+		</ul>
+	</fieldset>
+	<br>
+	<input type="submit" value="send message">
+
+ </form>
+  
+ </body>
+</html>

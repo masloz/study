@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>video 태그연습</title>
+</head>
+<body>
+	<h1>video 태그 연습</h1>
+	<video width="480" height="320" autoplay controls poster="images/flower1.jpg">
+		<!- ogv는 예전 파이어폭스와 오페라 -->
+		<source src="multi/video1.ogv" type="video/ogv">
+		<!- mp4는 사파리, IE9, 아이폰, 아이패드, 안드로이드, 윈도우 7 폰 -->
+		<source src="multi/video1.mp4" type="video/mp4">
+		<!- WebM는 파이어폭스4, 오페라, 크롬 -->
+		<source src="multi/video1.webm" type="video/webm">
+	</video>
+	<audio controls autoplay>
+		<source src="multi/major.mp3">
+		<source src="multi/major.ogg">
+	</audio>
+
+</body>
+</html>
