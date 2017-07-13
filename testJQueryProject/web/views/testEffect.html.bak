@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test effect</title>
+<style type="text/css">
+	.move{
+		background : olive;
+		width : 50px;
+		height : 50px;
+		left : 10px;
+		margin-bottom : 15px;
+		position : relative;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('h1').click(function(){
+			$(this).next().toggle();
+		});
+		
+		$('input').eq(0).click(function(){
+			$('#box1').show(1000);
+		});
+		
+		$('input').eq(1).click(function(){
+			$('#box1').hide('slow');
+		});
+		
+		$('#box2').hover(function(){
+			var h = $(this).css('height');
+			var w = $(this).css('width');
+			
+			$(this).animate({width: parseInt(w) + 50,
+				height: parseInt(h) + 50}, 'fast');
+			
+		}, function(){
+			var h = $(this).css('height');
+			var w = $(this).css('width');
+			
+			$(this).animate({width: parseInt(w) - 50, height: parseInt(h) - 50}, 'fast');
+		});
+
+		$('div.move').each(function(index){
+			$(this).delay(index * 500).animate({left:500}, 'fast');
+			$(this).delay(index * 500).animate({left:0}, 'fast');$(this).delay(index * 500).animate({left:500}, 'fast');
+			$(this).delay(index * 500).animate({left:0}, 'fast');$(this).delay(index * 500).animate({left:500}, 'fast');
+			$(this).delay(index * 500).animate({left:0}, 'fast');$(this).delay(index * 500).animate({left:500}, 'fast');
+			$(this).delay(index * 500).animate({left:0}, 'fast');
+		});
+	});
+</script>
+</head>
+<body>
+<h1>OPEN & CLOSE</h1>
+<div>
+	<h2>Header1</h2>
+	<p>Content1</p>
+</div>
+<h1>OPEN & CLOSE</h1>
+<div>
+	<h2>Header2</h2>
+	<p>Content2</p>
+</div>
+<hr>
+<input type="button" value="open"> &nbsp; 
+<input type="button" value="close"> <br>
+<div id="box1">
+	<h2>Header3</h2>
+	<p>Content3</p>
+</div>
+<br>
+<div id="box2" style="width:50px;height:50px;background:orange;"></div>
+<br>
+<hr>
+<div class="move"></div>
+<div class="move"></div>
+<div class="move"></div>
+<div class="move"></div>
+<div class="move"></div>
+<div class="move"></div>
+</body>
+</html>

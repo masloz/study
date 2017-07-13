@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+	function addFile(){
+		$('div').after('<input type="file"><br>').html();
+	}
+
+	function delFile(){
+		$('input:file:gt(0)').last().remove();
+	}
+  </script>
+  <title>method2</title>
+ </head>
+ <body>
+  <div>
+	<input type="file">
+	<input type="button" value="추가" onclick="addFile()">
+	<input type="button" value="삭제" onclick="delFile()"><br>
+  </div>
+ </body>
+</html>

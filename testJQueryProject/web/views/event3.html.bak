@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+		$('table').on('click', 'tr:gt(0)', function(){
+			$(this).children().each(function(index){
+				$('#s' + (index + 1)).text($(this).text());
+			});
+			$('table tr').removeAttr('style');
+			$(this).css('background', 'red');
+		});
+
+	});
+  </script>
+  <title>Document</title>
+ </head>
+ <body>
+  <table border="1">
+  <tr>
+	<th>번호</th>
+	<th>제목</th>
+	<th>조회수</th>
+	<th>작성일자</th>
+  </tr>
+  <tr>
+	<td>3</td>
+	<td>131313</td>
+	<td>0</td>
+	<td>17-07-13</td>
+  </tr>
+  <tr>
+	<td>2</td>
+	<td>실화냐</td>
+	<td>36</td>
+	<td>17-06-06</td>
+  </tr>
+  <tr>
+	<td>1</td>
+	<td>노답</td>
+	<td>63</td>
+	<td>17-05-12</td>
+  </tr>
+  </table>
+  선택된 행 : 
+  <span id="s1"></span> / <span id="s2"></span> / <span id="s3"></span> / <span id="s4"></span>
+ </body>
+</html>
+	

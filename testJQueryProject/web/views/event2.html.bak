@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+		$('tr:eq(1)').click(function(){
+			$('#s1').empty();
+			$('#s2').empty();
+			$('#s3').empty();
+			$('#s4').empty();
+
+			$('#s1').append($('tr:eq(1) td:eq(0)').clone());
+			$('#s2').append($('tr:eq(1) td:eq(1)').clone());
+			$('#s3').append($('tr:eq(1) td:eq(2)').clone());
+			$('#s4').append($('tr:eq(1) td:eq(3)').clone());
+		});
+		
+		$('tr:eq(1)').click(function(){
+			$.each(span, function(index){
+				$('#s' + index).empty();
+			});
+		});
+
+		$('table').on('click', 'tr:not(tr:eq(0))', function(){
+			$(this).children().each(function(index){
+				$('#s' + (index + 1)).text($(this).text());
+			});
+		});
+
+	});
+  </script>
+  <title>Document</title>
+ </head>
+ <body>
+  <table border="1">
+  <tr>
+	<th>번호</th>
+	<th>제목</th>
+	<th>조회수</th>
+	<th>작성일자</th>
+  </tr>
+  <tr>
+	<td>3</td>
+	<td>131313</td>
+	<td>0</td>
+	<td>17-07-13</td>
+  </tr>
+  <tr>
+	<td>2</td>
+	<td>실화냐</td>
+	<td>36</td>
+	<td>17-06-06</td>
+  </tr>
+  <tr>
+	<td>1</td>
+	<td>노답</td>
+	<td>63</td>
+	<td>17-05-12</td>
+  </tr>
+  </table>
+  선택된 행 : 
+  <span id="s1"></span> / <span id="s2"></span> / <span id="s3"></span> / <span id="s4"></span>
+ </body>
+</html>
+	

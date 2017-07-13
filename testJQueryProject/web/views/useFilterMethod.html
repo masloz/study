@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>use filter()</title>
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+		//$('h3:even').css('background', 'black').css('color', 'white');
+
+		// filter() 메소드에 필터선택자를 사용한 경우
+		$('h3').filter(':even').css({
+			'background' : 'red',
+			'color' : 'white'
+		});
+
+		// filter()메소드에 선택을 위한 계산식을 함수로 작성한 경우
+		$('h3').filter(function(index){
+			// 복잡한 계산으로 선택을 고를 경우에 이용함
+			return index % 3 == 0;
+		}).css({
+			'background' : 'blue',
+			'color' : 'white'
+		});
+
+		// 필터선택자 중에서 자주 사용되는 것에 대해 메소드가 제공됨
+		console.log("세번째 값 : " + $('h3').eq(2).text());
+		console.log("첫번째 값 : " + $('h3').first().text());
+		console.log("마지막 값 : " + $('h3').last().text());
+
+		//each() 메소드와 is() 메소드 사용
+		$('h4').each(function(){
+			if($(this).is('.select')){
+				$(this).css('background', 'gray');
+			}
+		})
+
+
+
+	});
+  </script>
+ </head>
+ <body>
+  <h3>Header-0</h3>
+  <h3>Header-1</h3>
+  <h3>Header-2</h3>
+  <h3>Header-3</h3>
+  <h3>Header-4</h3>
+  <h3>Header-5</h3>
+  <hr>
+  <h4 class="select">Heade4r-0</h4>
+  <h4>Header4-1</h4>
+  <h4 class="select">Header4-2</h4>
+
+  <hr>
+  <h1>filter 실습</h1>
+  <h2><a href="filter1.html">실습1</a></h2>
+  <h2><a href="filter2.html">실습2</a></h2>
+ </body>
+</html>

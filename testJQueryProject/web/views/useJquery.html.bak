@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>useJquery</title>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	/* window.onload = function(){
+		alert("문서 읽기 완료");
+	} */
+	// jQuery(document).ready(function(){
+	// $(document).ready(function(){
+	$(function(){
+		alert("문서 준비 완료");
+	});
+	$
+</script>
+
+</head>
+<body>
+<h2><ol>
+	<li>CDN 방식 : 딜리버리가 제공한는 URL로 제이쿼리 소스를 링크해서 사용하는 방식</li>
+	<li>직접 다운받아 사용하는 방식 : 웹 애플리케이션 루트 폴더안에 폴더를 하나 지정하고 다운받은 제이쿼리 라이브러리 파일을 넣어놓고 사용하는 방식 (권장)</li>
+</ol></h2>
+</body>
+</html>

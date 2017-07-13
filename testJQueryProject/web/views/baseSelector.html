@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js">
+
+  </script>
+  
+  <script type="text/javascript">
+	$(function(){
+		// 태그명으로 선택
+		$('h3').css('color', 'green');
+		// 전체선택자 '*'
+		$('*').css('margin-bottom', '15px');
+		$('h4, p').css('background-color', 'orange');
+		$('#box1').css('border', '2px solid red');
+		$('.test1').css('text-shadow', '2px 2px 3px grey');
+		$('h1.test1').css('color', 'purple');
+		$('.test1.item1').css('text-decoration', 'overline');
+		// 자식 선택자를 사용한 선택
+		$('#box2 h1').css('color', 'navy');
+		$('#box2 > h1').css('font-style', 'italic');
+		// 태그 속성으로 선택
+		$('input[type=text]').val('제이쿼리가 입력한 값');
+		//필터선택자로 선택
+		var value = $('#box3 > select > option[selected=selected]').val();
+		console.log("value : " + value);
+		var value2 = $('#box3 option:selected').val();
+		console.log("value2 : " + value2);
+
+		$('#t1 tr:odd').css('background', 'white');
+		$('#t1 tr:even').css('background', '#d9d9d9');
+		$('#t1 tr:first').css('background', '#000').css('color', '#fff');
+
+		$('#t2 tr:eq(0)').css('background', '#000').css('color', 'yellow');
+		$('#t2 td:nth-child(3n+1)').css('background', 'grey').css('color', '#000');
+		$('#t2 td:nth-child(3n+2)').css('background', 'beige').css('color', 'navy');
+	});
+	
+  </script>
+
+  <title>jQuery base selector</title>
+ </head>
+ <body>
+  <h1 class="test1">제이쿼리 기본 선택자 테스트</h1>
+  <h2>태그 대상 선택 방법 : jQuery('선택자').적용할메소드(값 또는 함수);</h2>
+  <h3><ol style="list-style-type : upper-roman;">
+	<li class="test1">태그명으로 선택하는 방법 : $('태그명').메소드명();</li>
+	<li>전체 선택자 사용하는 방법 : $('*).메소드명();</li>
+	<li class="test1 item1">여러 태그에 적용하는 방법 : $('태그명, 태그명').메소드명();</li>
+	<div id="box1" class="">
+		<h4>Lorem ipsum</h4>
+		<p>Lorem ipsum dolor ist amet.</p>
+		<h4>Lorem ipsum</h4>
+		<p>consectetur adipiscing elit.</p>
+	</div>
+	<li>ID를 사용한 선택 : $('#아이디명').메소드명();</li>
+	<li>클래스명을 서용한 선택 : $('태그명.클래스명').메소드명();
+	또는 $('.클래스명').메소드명();</li>
+	<li>자식선택자로 선택 : $('태그명 > 태그명').메소드명();</li>
+	<div id="box2">
+		<ul>
+			<li><h1>Apple</h1></li>
+			<li>Bag</li>
+			<li>Cat</li>
+			<li>Dog</li>
+			<li>Earth Worm</li>
+		</ul>
+		<h1>Child H1</h1>
+	</div>
+	<li>태그의 속성 또는 속성의 값으로 선택하는 방법 : $('태그명[속성 연산자 값]').메소드명();</li>
+	<input type="text" name=""><br>
+	<input type="password" name=""><br>
+	<input type="radio" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="file"><br>
+	<li>필터선택자를 이용한 선택 : 속성의 값을 선택으로 적용할 때 사용할 수 있음.<br>
+	$('태그명:속성값').메소드명();</li>
+	<div id="box3">
+		<select name="">
+			<option value="apple" selected="selected">Apple</option>
+			<option value="bag">Bag</option>
+			<option value="cat">Cat</option>
+			<option value="dog">Dog</option>
+			<option value="earth worm">Eart Worm</option>
+		</select>
+	</div>
+	<li>태그의 사용 순번을 이용한 선택 : 필터선택자 사용<br>
+	태그명:odd - 홀수번째, 태그명:even - 짝수번째, 태그명:first - 첫번째, 태그명:last - 마지막번째 
+	</li>
+	<table id="t1">
+	<tr>
+		<th>이름</th>
+		<th>혈액형</th>
+		<th>지역</th>
+	</tr>
+	<tr>
+		<td>강민수</td>
+		<td>AB형</td>
+		<td>서울</td>
+	</tr>
+	<tr>
+		<td>구자연</td>
+		<td>A형</td>
+		<td>부산</td>
+	</tr>
+	<tr>
+		<td>김미화</td>
+		<td>B형</td>
+		<td>미국</td>
+	</tr>
+	<tr>
+		<td>김선화</td>
+		<td>O형</td>
+		<td>제주</td>
+	</tr>
+	<tr>
+		<td>남기주</td>
+		<td>A형</td>
+		<td>경기</td>
+	</tr>
+	<tr>
+		<td>윤하린</td>
+		<td>B형</td>
+		<td>광주</td>
+	</tr>
+	</table>
+	<li>위치 관련 필터 함수를 이용한 선택 : 태그명:필터함수(위치값)</li>
+	<table id="t2">
+	<tr>
+		<th>이름</th>
+		<th>혈액형</th>
+		<th>지역</th>
+	</tr>
+	<tr>
+		<td>강민수</td>
+		<td>AB형</td>
+		<td>서울</td>
+	</tr>
+	<tr>
+		<td>구자연</td>
+		<td>A형</td>
+		<td>부산</td>
+	</tr>
+	<tr>
+		<td>김미화</td>
+		<td>B형</td>
+		<td>미국</td>
+	</tr>
+	<tr>
+		<td>김선화</td>
+		<td>O형</td>
+		<td>제주</td>
+	</tr>
+	<tr>
+		<td>남기주</td>
+		<td>A형</td>
+		<td>경기</td>
+	</tr>
+	<tr>
+		<td>윤하린</td>
+		<td>B형</td>
+		<td>광주</td>
+	</tr>
+	</table>
+	<hr>
+	<h1>기본 선택자 실습하기</h1>
+	<li><a href="selector1.html">실습1</a></li>
+	<li><a href="selector2.html">실습2</a></li>
+	<li><a href="selector3.html">실습3</a></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+  </ol></h3>
+ </body>
+</html>

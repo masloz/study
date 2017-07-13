@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>use Basic Method</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+
+  <style>
+  div {
+    color: red;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bolder;
+    width: 300px;
+  }
+
+	.high_light_0 { background : Yellow;}
+	.high_light_1 { background : Orange;}
+	.high_light_2 { background : Blue;}
+	.high_light_3 { background : Green;}
+	.high_light_4 { background : Red;}
+  </style>
+  
+ <script type="text/javascript">
+ 	$(function(){
+ 		//document.getElementById("btn1").onclick = function(){};
+ 		$('#btn1').click(function(){
+ 			$('div').each(function(){
+ 				if(this.style.color !== "blue"){
+ 					//this.style.color = "blue";
+ 					//제이쿼리 코드
+ 					$(this).css("color", "blue");
+ 				}else{
+ 					//자바스크립트 코드
+ 					this.style.color = "";
+ 				}
+ 			});
+ 		});
+ 
+ 
+ 		var array = [
+ 			{name : 'A', link : "http://www.naver.com"}, 
+ 			{name : 'B', link : "http://www.google.com"}, 
+ 			{name : 'C', link : "http://www.w3c.org"}, 
+ 			{name : 'D', link : "http://www.daum.net"}
+ 		];
+ 
+ 		var output = "";
+ 		$.each(array, function(index, item){
+ 			output += "<a href=" + item.link + ">";
+ 			output += "<h1>" + item.name + "</h1></a>";
+ 			$('#area1').html(output);
+ 		});
+ 
+ 		// 버튼 클릭시 클래스 속성 추가 / 제거 토글처리
+ 		$('button:not("#btn1")').each(function(index){
+ 			$(this).click(function(){
+ 				$('h4').each(function(i, element){
+ 					if(i == index){
+ 						if($(element).is(".high_light_" + i)){
+							$(this).removeClass("high_light_" + i);
+						}else{
+							$(this).addClass("high_light_" + i);
+						}
+						// toggle -> add, remove 왔다갔다
+ 						//$(this).toggleClass('high_light_' + i);
+ 					}
+ 				})
+ 			});
+ 		});
+ 	});
+  </script>
+
+
+ </head>
+ <body>
+  <h1>jQuery 가 제공하는 기본 메소드 사용법 테스트</h1>
+<ul>
+	<li>each(function(index, item){}) 메소드 테스트</li>
+	for문과 같은 반복 처리를 자동으로 해주는 메소드임.
+	<button id="btn1">글자색 바꾸기</button>
+	<div>Click here</div>
+	<div>to iterate through</div>
+	<div>these divs.</div>
+<hr>
+	<li>each(object, function(){}) 메소드 테스트</li>
+	<span id="area1"></span>
+	<li>태그에 class 속성 추가/제거하는 메소드 : addClass('클래스명'), removeClass('클래스명')</li>
+	<h4>item - 0 <button>클래스추가 / 제거</button></h4>
+	<h4>item - 1<button>클래스추가 / 제거</button></h4>
+	<h4>item - 2<button>클래스추가 / 제거</button></h4>
+	<h4>item - 3<button>클래스추가 / 제거</button></h4>
+	<h4>item - 4<button>클래스추가 / 제거</button></h4>
+	<li>attr() 메소드 : attr("속성") - 속성 값 조회(get), attr("속성", "값") - 속성 추가/변경</li>
+	<img id="img1" src="../images/button.jpg">&nbsp; &nbsp; <button onclick="changeSize();">크기변경</button><br>
+	<script type="text/javascript">
+		function changeSize(){
+			if($('img').attr('width')){
+				$('img').removeAttr('width');
+			}else{
+				$('img').attr('width', '100');
+			}
+			// $('img').attr('width', '100');
+
+			
+		}
+	</script>
+	<li>Img 태그에 배열로 src 속성값 적용하기</li>
+	<button onclick="addSrc();">이미지 소스파일 적용하기</button>
+	<div id="area2">
+		<img>
+		<img>
+		<img>
+	</div>
+	<script type="text/javascript">
+		function addSrc(){
+			var imgArray = new Array("../images/ph1_s.jpg", "../images/ph2_s.jpg", "../images/ph3_s.jpg");
+			$('div#area2 > img').each(function(index, imgTag){
+				$(imgTag).attr('src', imgArray[index]);
+			});
+		};
+	</script>
+	<li>일정 시간 간격으로 자동실행하는 함수 테스트 : setInterval() 자바스크립트 함수 사용함</li>
+	<div id="area3">
+		<h3>Header3</h3>
+	</div>
+	<script type="text/javascript">
+		/*$(function(){
+			setInterval(function(){
+				$('#area3 > h3').append($('#area3 > h3'	).first().html());
+			}, 1000);
+		}); */
+	</script>
+	<li><a href="method1.html">메소드 실습1</a></li>
+	<li><a href="method2.html">메소드 실습2</a></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+ </body>
+</html>

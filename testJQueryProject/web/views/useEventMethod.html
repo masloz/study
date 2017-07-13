@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>Event Method</title>
+
+  <style type="text/css">
+	.reverse{
+		background : black;
+		color : white;
+	} 
+  </style>
+
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+		// hover
+		$('div#box1 > h2').hover(function(event){
+			$(this).addClass('reverse');
+			console.log(event.pageX + ", " + event.pageY);
+		}, function(event){
+			$(this).removeClass('reverse');
+		});
+
+		// $('div#box2 > h2').click(function(){});
+		$('div#box2 > h2').on('click', function(){
+			$(this).html($(this).html() + '★');
+		});
+
+		$('button#btn2').bind('click', {name : "Karl"}, great);
+
+		
+
+		$('#h').on('click', function(event){
+			alert('아이디 h에 클릭이벤트 발생함');
+		});
+
+		$('#h > a').on('click', function(event){
+			alert('아이디 h태그안에 있는 a 이벤트');
+			event.preventDefault();
+			event.stopPropagation();
+			// return false; -> 위에 두개랑 같은듯
+		});
+		
+		// $('#wrap > h1').click(function(event){});
+		// $('#wrap > h1').bind('click', function(event){});
+		// $('#wrap > h1').on('click', function(event){});
+		$(document).on('click', '#wrap > h1', function(event){
+			var length = $('#wrap > h1').length;
+			console.log(length);
+			var targetHTML = $(this).html();
+			$('#wrap').append('<h1>' + length + '-' + targetHTML + '</h1>');
+		});
+
+		$("#outer").mouseover(function() {
+			console.log("OVER");
+		});
+		 $("#outer").mouseenter(function() {
+			console.log("ENTER");
+		}); 
+
+
+		$("textarea").keyup(function() {
+			var inputLength = $(this).val().length;
+			var remain = 150 - inputLength;
+			$("#typeBox > h2").html(remain);
+
+			$("#typeBox > h2").html(remain);
+			 if(remain >= 0) {
+			$("#typeBox > h2").css("color", "black");
+			} else {
+			$("#typeBox > h2").css("color", "red");
+			} 
+		 }); 
+
+		 $('#myform').submit(function(event){
+			 // val값 가져옴
+			var name = $('#username').val();
+			var password = $('#userpwd').val();
+
+			// 출력
+			alert(name + " : " + password);
+
+			// 기본 이벤트를 제거
+			event.preventDefault();
+		 });
+
+
+		 $('#all').change(function(){
+			
+			if(this.checked){
+				$('#chklist').attr('checked', true);	
+			}else{
+				 $('#chklist').attr('checked', false);
+			}});
+
+
+
+	});
+
+	function great(event){
+		console.log(event.data.name);
+	}
+  </script>
+ </head>
+ <body>
+  <h1>제이쿼리 이벤트 메소드 사용법</h1>
+  <h3><ul>
+	<li>hover (mouseenter + mouseleave) 테스트</li>
+	두 가지 동작에 대한 콜백함수 적용해야 함<br>
+	moustenter : 대상 위에 마우스 갖다 대었을 때<br>
+	mouseleave : 대상 위에서 마우스를 벗어나게 했을 때<br>
+	<div id="box1">
+		<h2>Hdeader2-0</h2>
+		<h2>Hdeader2-1</h2>
+	</div>
+	<li>이벤트를 자동 발생시크는 메소드 : trigger('이벤트명') 테스트</li>
+	<button onclick="addStar();">별 추가하기</button>
+	<div id="box2">
+		<h2>Start1 : </h2>
+		<h2>Start2 : </h2>
+	</div>
+	<script type="text/javascript">
+		function addStar(){
+			$('div#box2 > h2:last').trigger('click');
+		}
+	</script>
+	<li>이벤트용 콜백함수 따로 작성해서 호출하고, data매개변수 적용 테스트</li>
+	<button id="btn2"> 실행확인 </button>
+	<hr>
+	<li>중첩 사용된  태그에 같은 이벤트가 설정되어 있으면, 태그에 해당 이벤트가 발생하면 인접한 태그에 이벤트가 전달됨 : 이벤트 전달을 막을 필요가 있다 => event.stopPropagation() 사용함 => 이벤트는 안쪽에서 바깥쪽 태그로 전달됨</li>
+	<h1 id="h" style="padding:10px; background:orange;"><a href="http://www.google.com" style="margins:10px; background:olive;">구글</a></h1>
+	<hr>
+	<li>이벤트 연결에 on() 메소드 사용 테스트</li>
+	<div id="wrap">
+		<h1>Header</h1>
+	</div>
+	<li>mouseover 와 mouseenter 의 차이 테스트</li>
+	<div id="outer" style="width:200px; height:200px; background:orange; padding:50px;">
+		<div id="inner" style="width:100%; height:100%; background:pink">
+			
+		</div>
+	</div>
+	<li>키보드 이벤트 테스트</li>
+	<div id="typeBox">
+		<p>글자를 입력하세요.</p>
+		<h2>150</h2>
+		<textarea name="" rows="5" cols="70"></textarea>
+	</div>
+	<li>입력양식 form 태그 관련 이벤트 테스트</li>
+	<form method="post" action="" id="myform">
+		<table>
+	<tr>
+		<td>이 름</td>
+		<td><input type="text" name="username" id="username"></td>
+	</tr>
+	<tr>
+		<td>비밀번호</td>
+		<td><input type="password" name="userpwd" id="userpwd"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="제출하기"></td>
+	</tr>
+	</table>
+	</form>
+	<li>체크박스의 체크상태가 변경되었을 대의 이벤트 테스트</li>
+	<div id="chklist">
+		<input type="checkbox" id="all"> All<br><br>
+		<input type="checkbox" name="1"> A<br>
+		<input type="checkbox" name="1"> B<br>
+		<input type="checkbox" name="1"> C<br>
+		<input type="checkbox" name="1"> D<br>
+	</div>
+	<li><a href="practice.html">이벤트 실습 : practice</a></li>
+	<li><a href="event1.html">event1</a></li>
+	<li><a href="event2.html">event2</a></li>
+	<li><a href="event3.html">event3</a></li>
+  </ul></h3>
+ </body>
+</html>

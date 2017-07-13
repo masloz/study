@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+	$(function(){
+
+		$('select[name=number]').change(function(){
+			$('span').empty();
+			$('span').append(this.value + '번');
+			
+		});
+
+		/*
+		$('body').on('change', 'select[name=number]', function(){
+			$(this).children().each(function(){
+				if($(this).is(':selected'){
+					$("#selNum").text($(this).text());
+
+	}
+			});
+		});
+		
+		*/
+	});
+  </script>
+
+  <title>Document</title>
+ </head>
+ <body>
+  <select name="number">
+	<option value="">== 선택 ==
+	<option value="1">1번
+	<option value="2">2번
+	<option value="3">3번
+	<option value="4">4번
+  </select>
+  <span id="selNum"></span>
+ </body>
+</html>

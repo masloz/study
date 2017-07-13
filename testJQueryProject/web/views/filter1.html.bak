@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>filter1</title>
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+	function checkBtn(){
+		console.log(
+			$('input[name=check]').text();
+		);
+	}
+  </script>
+ </head>
+ <body>
+  <input type="checkbox" name="check" value="1"> 1번
+  <input type="checkbox" name="check" value="2"> 2번
+  <input type="checkbox" name="check" value="3"> 3번
+  <input type="checkbox" name="check" value="4"> 4번 <br>
+  <input type="button" value="출력" onclick="checkBtn();">
+ </body>
+</html>

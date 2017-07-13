@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+
+		function add(){
+			$('table').append('<tr><td>' + $('input[name=title]').val() + '</td><td>' + $('input[name=content]').val() + '</td><td>' + $('input[name=owner]').val() + '</td></tr>').html();
+			clear();
+		}
+
+		function clear(){
+			$('input[name=title]').val("");
+		}
+
+		
+	</script>
+  <title>method1</title>
+ </head>
+ <body>
+  제목 : <input type="text" name="title"><br>
+  내용 : <input type="text" name="content"><br>
+  작성자 : <input type="text" name="owner"><br>
+  <input type="button" value="테이블에 추가" onclick="add()">
+
+  <table border="1">
+  <tr>
+	<td>제목</td>
+	<td>내용</td>
+	<td>작성자</td>
+  </tr>
+  </table>
+ </body>
+</html>
