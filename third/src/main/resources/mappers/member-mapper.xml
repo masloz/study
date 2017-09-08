@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+
+	<resultMap id="resultMember" type="Member">	
+		<id property="id" column="ID" />
+		<result property="passwd" column="PASSWD" />
+		<result property="name" column="NAME" />
+		<result property="email" column="EMAIL" />
+		<result property="gender" column="GENDER" />
+		<result property="age" column="AGE" />
+		<result property="phone" column="PHONE" />
+		<result property="address" column="ADDRESS" />
+		<result property="enroll_date" column="ENROLL_DATE" />
+	</resultMap>
+	
+	<select id="loginCheck" parameterType="Member" resultType="Member" resultMap="resultMember">
+		SELECT * FROM MEMBER WHERE ID = #{id} AND PASSWD = #{passwd}
+	</select>
+	<!-- 
+	<select id="memberInfo" parameterType="string" resultType="_int" resultMap="resultMember">
+		SELECT * FROM MEMBER
+		<include refid="refMember" />
+		 WHERE ID = #{userid}
+	</select>	
+	
+	
+
+	<insert id="insertMember" parameterType="Member" flushCache="true"
+	 statementType="PREPARED" keyProperty="" keyColumn="" useGeneratedKeys="true" timeout="20">
+	 	INSERT INTO MEMBER VALUES(#{id}, #{passwd}, #{name}, #{email}, #{gender}, #{age}, #{phone}, #{address}, DEFAULT)
+	  </insert>
+	
+	<update id="updateMember" parameterType="Member" flushCache="true" statementType="PREPARED" timeout="20">
+		UPDATE MEMBER SET PASSWD = #{passwd}, EMAIL = #{email}, AGE = #{age},
+			PHONE = #{phone}, ADDRESS = #{address} WHERE ID = #{id}
+	 </update>
+	
+	<delete id="deleteMember" parameterType="string" flushCache="true" statementType="PREPARED" timeout="20">
+		DELETE FROM MEMBER WHERE ID = #{userid}
+	</delete>
+	 -->
+
+</mapper>
