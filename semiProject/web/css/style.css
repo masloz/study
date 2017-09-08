@@ -1,0 +1,464 @@
+@CHARSET "UTF-8";
+
+            /*
+            =====================
+            ==      lay out    ==
+            =====================
+            */
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: white;
+}
+
+.container {
+    position: relative;
+    padding: 10px;
+    margin-top: 100px;
+}
+
+#main01 {
+    height: 600px;
+}
+
+section {
+    position: relative;
+}
+
+
+/*
+            =====================
+            ==   background    ==
+            =====================
+            */
+
+.carousel {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.item img {
+    width: 100%
+}
+
+.right,
+.left {
+    display: none;
+}
+
+#blackpad {
+    width: 100%;
+    height: 1000px;
+    background-color: black;
+    opacity: 0.8;
+    position: fixed;
+}
+
+
+/*
+            =====================
+            ==      logo       ==
+            =====================
+            */
+
+#logobox {
+    width: 140px;
+    height: 140px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #0c0642;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 3px 3px 3px black;
+    position: relative;
+}
+
+#logobox img {
+    margin-bottom: 3px;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+    left: 100px;
+}
+
+#logo2 {
+    width: 100px;
+    height: auto;
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+#header02 {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    background-color: #0c0642;
+}
+
+
+/*
+            =====================
+            ==   background    ==
+            =====================
+            */
+
+.col-sm-4 {
+    border-radius: 2px;
+    height: 200px;
+}
+
+#private {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#private span {
+    font-size: 12px;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    color: white;
+}
+
+
+/*
+            =====================
+            ==      modal      ==
+            =====================
+            */
+
+.w3-button>span {
+    font-size: 120px;
+}
+
+.w3-container,
+.w3-container>span,
+.w3-container>p {
+    color: black;
+}
+
+.w3-container,
+.w3-container>p {
+    padding: 10px;
+}
+
+.w3-modal-content {
+    border-radius: 8px;
+    background: rgb(255, 255, 100);
+    margin-top: 180px;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+}
+
+#id01 .w3-modal-content {
+    width: 750px;
+    height: 200px;
+}
+
+#search {
+    width: 700px;
+}
+
+#id02 .w3-modal-content {
+    width: 400px;
+    height: 150px;
+}
+
+.mainbtn {
+    text-align: center;
+    font-size: 110px;
+    opacity: 0.8;
+    top: px;
+    color: white;
+}
+
+.mainbtn:hover {
+    font-size: 120px;
+    opacity: 1;
+}
+
+
+/*
+            =====================
+            ==      login      ==
+            =====================
+            */
+
+#login01 {
+    width: 335px;
+    height: 60px;
+    margin-top: 30px;
+}
+
+#login01 input {
+    color: #aaa;
+    width: 250px;
+    border: none;
+    height: 27px;
+}
+
+#login01 a {
+    background: #0c0642;
+    height: 60px;
+    text-align: center;
+    padding-top: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 100;
+}
+
+#loginservice {
+    width: 400px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#loginservice a {
+    font-size: 12px;
+}
+
+#searchbar {
+    width: 700px;
+}
+
+.w3-third {
+    padding: 7px;
+}
+
+
+/*
+            =====================
+            ==      search     ==
+            =====================
+            */
+
+#searchsec01 {
+    background: yellow;
+    margin-bottom: 8px;
+}
+
+#searchsec02 {
+    background: ivory;
+}
+
+
+/*
+            =====================
+            ==      detail     ==
+            =====================
+            */
+
+#detail01 {
+    margin-top: 5px;
+    height: 545px;
+}
+
+#detailname{
+    position: absolute;
+    width: 80%;
+    height: 18%;
+    top: 270px;
+    
+}
+
+#detailname div{
+    position: absolute;
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    opacity: 0.7;
+    top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#detailname b{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 70px;
+    color: #555555;
+}
+
+#detail02 {
+    height: 335px;
+}
+
+#detail03 {
+    margin-top: 5px;
+    height: 50px;
+}
+
+#detail03 div a {
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+    color: white;
+    font-weight: 200;
+    text-decoration: none;
+}
+
+.detail span,
+.detail p {
+    color: #333;
+}
+
+section .w3-display-container {
+    width: 65%;
+    background: white;
+}
+
+#detailinfo {
+    padding: 20px 100px
+}
+
+#daumRoughmapContainer1501481393966 {
+    width: 100%;
+}
+
+#detail04 {
+    height: 195px;
+    margin: 5px;
+}
+
+.col-sm-12,
+.col-md-6,
+.col-lg-4 {
+    margin: 0;
+    padding: 0;
+}
+
+#detail05 {
+    margin-top: 5px;
+}
+
+#score {
+    color: black;
+    padding: 20px 100px
+}
+
+#score textarea {
+    width: 100%;
+    height: 100px;
+}
+
+#review {
+    height: 150px;
+}
+
+hr {
+    width: 100%;
+}
+
+#reviewtable tr td {
+    color: #444;
+}
+
+
+/*
+            =====================
+            ==      footer     ==
+            =====================
+            */
+
+footer {
+    position: relative;
+    bottom: 0px;
+    height: 150px;
+    background-color: #333;
+    opacity: 0.7;
+    margin-top: 25px;
+    color: white;
+}
+
+
+            /*
+            =====================
+            ==      enroll     ==
+            =====================
+            */
+
+
+
+
+#enrolltab li{
+    width: 50%;
+}
+
+
+#enrolluser input{
+    margin: 10px;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.p1{
+    width: 53%
+}
+
+.agreet{
+    margin-left: 120px;
+}
+
+#username{
+    width:15%;
+}
+.phone{
+    width:15.5%;
+}
+
+.birth{
+    width:15.9%;
+}
+
+#en1{
+    padding-top: 30px;
+}
+
+#checkall{
+    width: 30%;
+    background: blue;
+    color: white
+}
+
+#enrollcancle{
+    width: 30%;
+    background: red;
+    color: white
+}
+
+p{ 
+    position: relative;
+}
+
+.gender{
+    width: 15px
+}
+
+
+#genp{
+    width: 50%;
+    left: 9%;    
+}
+
+.text{
+    height: 25px;
+}
+
+.agreement{
+    background-color: #eee;
+    height: 500px;
+    border: 1px dotted black;
+    overflow: auto;
+    padding: 10px 100px;
+}
